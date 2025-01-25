@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя перша сторінка</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0077cc;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #0077cc;
+            text-align: center;
+        }
+        th {
+            background-color: #0077cc;
+            color: white;
+        }
+        td {
+            background-color: #eaf4fc;
+        }
+        form {
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        input, textarea, button {
+            width: 100%;
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="text"], input[type="email"] {
+            background-color: #f4f4f4;
+        }
+        textarea {
+            background-color: #f4f4f4;
+            resize: vertical;
+        }
+        button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Привіт, світ!</h1>
+    <p>Це моя перша веб-сторінка.</p>
+    <img src="nature.jpg" alt="Природа лох" width="600">
+    <p>
+        Відвідайте <a href="https://www.google.com" target="_blank">Google</a> для пошуку інформації.
+    </p>
+    <h2>Мої улюблені хобі:</h2>
+    <ul>
+        <li>Читання</li>
+        <li>Програмування</li>
+        <li>Подорожі</li>
+    </ul>
+    <h2>Мої цілі на 2025 рік:</h2>
+    <ol>
+        <li>Вивчити англійську мову</li>
+        <li>Навчитися створювати сайти</li>
+        <li>Подорожувати до трьох нових країн</li>
+    </ol>
+    <h2>Розклад на тиждень:</h2>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+            <tr>
+                <th>День тижня</th>
+                <th>Завдання</th>
+                <th>Час</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Понеділок</td>
+                <td>Вивчення HTML</td>
+                <td>10:00 - 12:00</td>
+            </tr>
+            <tr>
+                <td>Вівторок</td>
+                <td>Вивчення CSS</td>
+                <td>10:00 - 12:00</td>
+            </tr>
+            <tr>
+                <td>Середа</td>
+                <td>Практика</td>
+                <td>10:00 - 12:00</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Залиште ваш відгук:</h2>
+    <form action="https://example.com/submit" method="post">
+        <label for="name">Ваше ім'я:</label><br>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required><br><br>
+
+        <label for="email">Ваш Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Введіть ваш Email" required><br><br>
+
+        <label for="message">Ваше повідомлення:</label><br>
+        <textarea id="message" name="message" rows="5" cols="30" placeholder="Напишіть ваше повідомлення" required></textarea><br><br>
+
+        <button type="submit">Надіслати</button>
+    </form>
+
+    <script>
+        // Отримуємо форму
+        const form = document.querySelector('form');
+
+        // Функція для перевірки форми
+        form.addEventListener('submit', function(event) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Перевірка на порожні поля
+            if (!name || !email || !message) {
+                alert('Будь ласка, заповніть всі поля!');
+                event.preventDefault();  // Забороняє відправку форми
+            }
+
+            // Перевірка формату email
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert('Будь ласка, введіть коректний Email!');
+                event.preventDefault();  // Забороняє відправку форми
+            }
+        });
+    </script>
+</body>
+</html>
